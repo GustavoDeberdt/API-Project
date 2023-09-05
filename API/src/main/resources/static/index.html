@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de consumo de API</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body onload="select(0)">
+    <nav>
+      <div class="nav-spot">
+        <h1 id="title">Team Matches™</h1>
+      </div>
+      <ul>
+        <li>
+          <button class="nav-btn" id="btn-nav-time" onclick="showDisplay(); select(0)">Times</button>
+        </li>
+        <li>
+          <button class="nav-btn" id="btn-nav-jogo" onclick="showDisplayJ(); select(1)">Jogos</button>
+        </li>
+      </ul>
+      <div class="nav-spot" id="img-spot">
+        <img src="futebol.jpg" id="img-logo" alt="">
+      </div>
+    </nav>
+  <article>
+    <div id="times-form">
+      <fieldset class="form" id="createForm">
+          <legend>Criação</legend>
+            <input class="form-input" id="new_time_nome" placeholder="Nome do Time" type="text" />
+            <input class="form-input" id="new_anof" placeholder="Ano de Fundação" type="text" />    
+            <input class="form-input" id="new_cidade" placeholder="Cidade" type="text" />    
+            <input class="form-input" id="new_estado" placeholder="Estado" type="text" />    
+            <button class="form-btn" id="create-time-btn" onclick="createTime()">+ Criar</button>
+    </fieldset>
+    <!--Editar Time-->
+    <fieldset class="form" id="editForm">
+        <legend>Editar</legend>
+          <input class="form-input" id="time_nome" placeholder="Nome do time" type="text" />
+          <input class="form-input" id="time_anof" placeholder="Ano de Fundação" type="text" />    
+          <input class="form-input" id="time_cidade" placeholder="Cidade" type="text" />    
+          <input class="form-input" id="time_estado" placeholder="Estado" type="text" />    
+          <div>
+            <button class="form-btn" id="edit_button" onclick="updateTime()" >Editar</button>
+            <button class="form-btn" id="delete_button" onclick="delTime()">Apagar</button>
+            <button class="form-btn" id="cancel_button" onclick="CancelT()">Cancelar</button>
+          </div>
+      </fieldset>
+      <!--Pesquisar Time-->
+      <fieldset class="form" id="searchForm">
+        <legend>Buscar Times</legend>
+        <div class="radio-box">
+          <input type="radio" type="radio" id="s_Id" name="btn_search" onclick="radioIdT()" checked>
+            <label for="s_Id">Id</label>
+          <input type="radio" type="radio" id="s_Name" name="btn_search" onclick="radioNomeT()">
+            <label for="s_Name">Nome</label>
+        </div>
+        <input class="form-input" id="s_input_id" placeholder="id" type="number" />
+        <button class="form-btn" id="search_button_id" onclick="show_id()">Pesquisar</button>
+        <input class="form-input" id="s_input_nome" placeholder="nome" type="text" />
+        <button class="form-btn" id="search_button_nome" onclick="show_nome()">Pesquisar</button>
+      </fieldset>
+    </div>
+
+      <!--============================Jogos=============================-->
+
+    <div id="jogos-form">
+      <fieldset class="form" id="createFormJ">
+          <legend>Criação</legend>
+            <input class="form-input" id="new_jogos_nomeA" placeholder="Time A" type="text" />
+            <input class="form-input" id="new_pontosA" placeholder="pontos A" type="text" />         
+            <input class="form-input" id="new_jogos_nomeB" placeholder="Time B" type="text" />
+            <input class="form-input" id="new_pontosB" placeholder="pontos B" type="text" />         
+            <button class="form-btn" onclick="createJogo()">Criar</button>
+      </fieldset>
+      <fieldset class="form" id="editFormJ">
+          <legend>Editar</legend>
+            <input class="form-input" placeholder="nome 1" id="edit_jogos_nomeA" type="text" />
+            <input class="form-input" placeholder="pontos time 1" id="edit_pontosA" type="number" />    
+            <input class="form-input" placeholder="nome 2" id="edit_jogos_nomeB" type="text" />
+            <input class="form-input" placeholder="pontos time 2" id="edit_pontosB" type="number" />
+            <div>
+              <button class="form-btn" id="edit_button_jogos" onclick="updateJogo()" >Editar</button>
+              <button class="form-btn" id="delete_button_jogos" onclick="delJogo()">Apagar</button>
+              <button class="form-btn" id="cancel_button_jogos" onclick="CancelJ()">Cancelar</button>
+            </div>    
+        </fieldset>
+        <fieldset class="form" id="searchFormJ">
+          <legend>Buscar Jogo</legend>
+          <div class="radio-box">
+            <input type="radio" type="radio" id="s_j_Id" name="btn_search" onclick="radioIdJ()" checked>
+            <label for="s_j_Id">Id</label>
+            <input type="radio" type="radio" id="s_j_Name" name="btn_search" onclick="radioNomeJ()">
+            <label for="s_j_Name">Nome</label>
+          </div>
+            <!--id search-->
+            <input class="form-input" id="s_jogo_id" placeholder="id" type="number" />
+            <button class="form-btn" id="s_jogo_id_button" onclick="show_jogo_id()">Pesquisar</button>
+            <!--jogo search-->
+            <input class="form-input" id="s_nomeA" placeholder="nome time 1" type="text" />
+            <button class="form-btn" id="search_nomeA" onclick="show_nomeA()">Pesquisar</button>
+            <input class="form-input" id="s_nomeB" placeholder="nome time 2" type="text" /> 
+            <button class="form-btn" id="search_nomeB" onclick="show_nomeB()">Pesquisar</button>
+
+        </fieldset>
+      </div>
+  
+  </article>
+  
+  <div id="root"></div>
+</body>
+</html>

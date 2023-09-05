@@ -1,0 +1,1 @@
+Para usar Vá até a pasta src > main > resources e preecha com o url, username e password do seu banco de dados
